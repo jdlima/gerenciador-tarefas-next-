@@ -4,6 +4,7 @@ import md5 from 'md5';
 import { DefaultResponse } from '../../types/DefaultResponse';
 import { UserModel } from '../../models/UserModel';
 import { dbConnect } from '../../middlewares/dbConnect';
+import { corsPolicy } from '../../middlewares/corsPolicy';
 import {User} from '../../types/User';
 
 
@@ -43,4 +44,4 @@ const handler = async( req : NextApiRequest, res : NextApiResponse<DefaultRespon
 }
 
 
-export default dbConnect(handler);
+export default corsPolicy(dbConnect(handler));

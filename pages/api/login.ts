@@ -5,6 +5,7 @@ import { DefaultResponse } from '../../types/DefaultResponse';
 import md5 from 'md5';
 import {User} from '../../types/User';
 import { dbConnect } from '../../middlewares/dbConnect';
+import { corsPolicy } from '../../middlewares/corsPolicy';
 import jwt from 'jsonwebtoken';
 
 
@@ -56,4 +57,4 @@ const handler = async ( req : NextApiRequest, res : NextApiResponse<DefaultRespo
 }
 
 
-export default  dbConnect(handler);
+export default corsPolicy(dbConnect(handler));
